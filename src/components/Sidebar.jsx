@@ -1,6 +1,5 @@
 import { Button, makeStyles } from "@material-ui/core";
 import { Person } from "@material-ui/icons";
-import Navbar from "./components/Navbar";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -9,13 +8,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const App = () => {
+const Sidebar = () => {
   const classes = useStyles();
   return (
     <div>
-      <Navbar />
+      <Button
+        variant="contained"
+        size="medium"
+        startIcon={<Person />}
+        className={classes.button}
+      >
+        Material UI
+      </Button>
     </div>
   );
 };
 
-export default App;
+export default Sidebar;
