@@ -9,7 +9,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import { deepOrange } from "@material-ui/core/colors";
-import { Mail, Notifications, Search } from "@material-ui/icons";
+import { Cancel, Mail, Notifications, Search } from "@material-ui/icons";
 import { useState } from "react";
 
 const useStyles = makeStyles((theme) => ({
@@ -28,11 +28,17 @@ const useStyles = makeStyles((theme) => ({
     width: "50%",
     [theme.breakpoints.down("sm")]: {
       display: (props) => (props.open ? "flex" : "none"),
+      width: "60%",
     },
   },
   input: {
     color: "white",
     marginLeft: theme.spacing(2),
+  },
+  cancel: {
+    [theme.breakpoints.up("sm")]: {
+      display: "none",
+    },
   },
   logoLg: {
     display: "none",
@@ -66,7 +72,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const classes = useStyles({ open });
   return (
-    <AppBar>
+    <AppBar position="fixed">
       <Toolbar className={classes.toolbar}>
         <Typography variant="h6" className={classes.logoLg}>
           Material UI
@@ -80,6 +86,7 @@ const Navbar = () => {
             placeholder="search..."
             className={classes.input}
           ></InputBase>
+          <Cancel className={classes.cancel} onClick={() => setOpen(false)} />
         </div>
         <div className={classes.icons}>
           <Search

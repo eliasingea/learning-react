@@ -1,26 +1,24 @@
-import { Button, makeStyles } from "@material-ui/core";
+import { Button, Container, makeStyles } from "@material-ui/core";
 import { Person } from "@material-ui/icons";
+import Post from "./Post";
 
 const useStyles = makeStyles((theme) => ({
-  button: {
-    color: "white",
-    backgroundColor: theme.palette.main,
+  container: {
+    paddingTop: theme.spacing(10),
   },
 }));
 
 const Feed = () => {
   const classes = useStyles();
   return (
-    <div>
-      <Button
-        variant="contained"
-        size="medium"
-        startIcon={<Person />}
-        className={classes.button}
-      >
-        Material UI
-      </Button>
-    </div>
+    <Container className={classes.container}>
+      <Post />
+      <Post />
+      <Post />
+      <Post />
+      <Post />
+      <Post />
+    </Container>
   );
 };
 
